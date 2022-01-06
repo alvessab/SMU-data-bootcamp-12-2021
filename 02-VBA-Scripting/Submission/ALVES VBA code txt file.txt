@@ -1,0 +1,114 @@
+Sub stock_workbook()
+    
+    Dim ws As Worksheet
+    
+    For Each ws In Worksheets
+        
+        'add headers for workbooks
+        ws.Range("I1").Value = "Ticker Symbol"
+        ws.Range("J1").Value = "Yearly Change"
+        ws.Range("K1").Value = "Percent Change"
+        ws.Range("L1").Value = "Total Stock Volume"
+    
+        ' Process all rows in workbook
+          Dim lastRow As Long
+          lastRow = ws.Range("A:A").SpecialCells(xlCellTypeLastCell).Row
+        
+        ' Set up initial variables for calculations in workbook
+          Dim ticker As String
+          Dim yearlyChange As Double
+          Dim stockOpen As Double
+          Dim stockClose As Double
+          Dim percentChange As Double
+          Dim totalStock As Double
+        
+          ' Start variables at 0 so it calculates properly
+          yearlyChange = 0
+          percentChange = 0
+          totalStock = 0
+        
+          ' Keep track of the location for each ticker
+          Dim summaryTableRow As Integer
+          summaryTableRow = 2
+        
+          ' Loop through all tickers in worksheet
+          For i = 2 To lastRow
+                
+                 ' set up stock open variable
+                  If ws.Cells(i - 1, 1).Value <> ws.Cells(i, 1).Value Then
+                        stockOpen = ws.Cells(i, 3).Value
+                End If
+               
+                ' Check if we are still within the stock ticker. If it is not...
+                If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
+            
+                      ' Set the ticker
+                      ticker = ws.Cells(i, 1).Value
+                    
+                     'Calculate the yearly change field
+                     stockClose = ws.Cells(i, 6).Value
+                    
+                     yearlyChange = stockClose - stockOpen
+                    
+                
+                    'calculate percent change field
+                    If stockOpen > 0 Then
+                        percentChange = yearlyChange / stockOpen
+                    Else
+                        percentChange = -1
+                    End If
+                    
+                  ' Add to the total stock volume
+                   totalStock = totalStock + ws.Cells(i, 7).Value
+            
+                  ' Print the ticker in the Summary Table
+                  ws.Range("I" & summaryTableRow).Value = ticker
+                  
+                  'Print the yearly change in the Summary Table
+                   ws.Range("J" & summaryTableRow).Value = yearlyChange
+                  
+                   'Color code for yearly change cells
+                    If yearlyChange > 0 Then
+                         ws.Range("J" & summaryTableRow).Interior.ColorIndex = 4
+                    Else
+                        ws.Range("J" & summaryTableRow).Interior.ColorIndex = 3
+                    End If
+                    
+                  'Print the Percent Change in the Summary Table
+                   ws.Range("K" & summaryTableRow).Value = percentChange
+                   
+                   ' Percent format for percent change
+                   ws.Range("K:K").NuerFormat = "0.00%"
+        
+                  ' Print the total stock volume to thmbe Summary Table
+                  ws.Range("L" & summaryTableRow).Value = totalStock
+            
+                'SET UP FOR NEXT TICKER
+                  ' Add one to the summary table row
+                  summaryTableRow = summaryTableRow + 1
+                  
+                  'Reset the yearly change
+                  yearlyChange = 0
+           
+                  'reset the percent change
+                  percentChange = 0
+                  
+                  ' Reset the total stock volume
+                   totalStock = 0
+            
+                '  If the cell immediately following a row is the same ticker...
+            
+                Else
+                
+                  ' Add to the total stock volume
+                    totalStock = totalStock + ws.Cells(i, 7).Value
+            
+                End If
+            
+          Next i
+   
+   
+    Next
+
+End Sub
+
