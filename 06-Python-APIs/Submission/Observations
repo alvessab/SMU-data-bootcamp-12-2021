@@ -1,0 +1,4 @@
+3 observable trends:
+- Temperture stays nearly consistent at all latitudes in the southern hemisphere, where there is more variabilty in the northern hemisphere, as well as a direct correlation between latitide and temperature.
+- Most locations have a wind speed within the range of 0 and 30 mph, which can be observed in the wind_speed vs latitude scatter plot.
+- Most locations have a humidity within the range of 50% and 100%, which can be observed in the humidity vs latitude scatter plot.
