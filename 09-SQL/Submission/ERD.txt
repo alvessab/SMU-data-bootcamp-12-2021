@@ -1,0 +1,46 @@
+departments
+-
+ID SERIAL PK
+dept_no VARCHAR(10) UNIQUE
+dept_name VARCHAR(30)
+last_updated timestamp
+
+dept_emp
+-
+ID SERIAL PK
+emp_no INT FK >- employees.emp_no
+dept_no VARCHAR(10) FK >- departments.dept_no
+last_updated timestamp 
+
+dept_manager
+-
+ID SERIAL PK
+dept_no VARCHAR(10) FK >- departments.dept_no
+emp_no INT FK >- employees.emp_no
+last_updated timestamp
+
+employees
+-
+ID SERIAL PK
+emp_no INT UNIQUE
+emp_title_id VARCHAR(15) FK >- titles.title_id
+birth_date DATE
+first_name VARCHAR(30)
+last_name VARCHAR(30)
+sex VARCHAR(5)
+hire_date DATE
+last_updated timestamp
+
+salaries
+-
+ID SERIAL PK
+emp_no INT FK >- employees.emp_no
+salary INT
+last_updated timestamp
+
+titles
+-
+ID SERIAL PK
+title_id VARCHAR(30) UNIQUE
+title VARCHAR(50)
+last_updated timestamp
