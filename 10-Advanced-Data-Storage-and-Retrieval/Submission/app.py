@@ -23,7 +23,9 @@ def home():
     <br>
     /api/v1.0/tobs
     <br>
-    /api/v1.0/<start> and /api/v1.0/<start>/<end>
+    /api/v1.0/{start date} when date is formatted as YYYY-MM-DD  
+    <br>
+    /api/v1.0/{start date}/{end date} when date is formatted as YYYY-MM-DD
     """)
 
 
@@ -91,6 +93,33 @@ def tobs():
     except Exception as e:
         error = {"Error: Page Can't Load"}
         return(jsonify(error))
+
+@app.route("/api/v1.0/{start}/{end}")
+def getTemp(start, end):
+    try:
+
+        query = """
+        SELECT
+            min(tobs) as tmin,
+            max(tobs) as tmax,
+            avg(tobs) as tavg
+        FROM 
+            measurement
+        WHERE
+            date >= '{start}'
+            and date <= '{end}';"""
+
+        conn = engine.connect()
+        df = pd.read_sql(query, conn)
+        conn.close()
+        data = df.to_dict(orient="records")
+        return(jsonify(data))
+
+    except Exception as e:
+        error = {"Error: Page Can't Load"}
+        return(jsonify(error))
+
+
 
 
 if __name__ == "__main__":
