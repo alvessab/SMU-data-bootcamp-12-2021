@@ -8,6 +8,7 @@
 
 .card_design {
     border-style: solid;
+    border-color: #446E9B;
 }
 
 img {
@@ -16,3 +17,8 @@ img {
     object-fit: contain;
   }
 
+
+
+.img_border {
+    border: 10px solid black;
+}
