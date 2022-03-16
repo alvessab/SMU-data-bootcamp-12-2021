@@ -15,46 +15,46 @@
 
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Latitude with Attitude </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+              <a class="navbar-brand" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/index.html">Latitude with Attitude </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
           
-              <div class="right_align">
-                <div class="collapse navbar-collapse" id="navbarColor03">
-                    <ul class="navbar-nav me-auto">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#">Home
-                          <span class="visually-hidden">(current)</span>
-                        </a>
-                      </li>
-    
-                      <li class="nav-item dropdown" >
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                      </li>
-    
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Comparisons</a>
-                      </li>
-    
-    
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Data</a>
-                      </li>
-    
-    
-                    </ul>
-    
-                  </div>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a class="nav-link active" target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/index.html">Home
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                    </li>
+
+                    <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/max_temp.html">vs. Max Temperature</a>
+                                <a class="dropdown-item" target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/humidity.html">vs. Humidity</a>
+                                <a class="dropdown-item" target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/cloudiness.html">vs. Cloudiness</a>
+                                <a class="dropdown-item" target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/wind_speed.html">vs. Wind Speed</a>
+                            </div>
+                        </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/comparison.html" target="_blank">Comparisons</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/data.html" target="_blank">Data</a>
+                    </li>
+
+
+                </ul>
+
 
 
               </div>
@@ -67,33 +67,42 @@
         <div class="container-fluid">
 
             <div class= "row">
-                <div class = "col-md-8">
+                <div class = "col-md-8 col-sm-12">
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-header">Objective: Summary of Latitude vs X</div>
                         <div class="card-body">
                           <p class="card-text">This analysis looks at the correlation between location and weather changes.
                             Using data from OpenWeatherApi, latitude was plotted in scatter charts against:
-                            Max Temperature, Humidity, Cloudiness, and Wind Speed (mph) for 500 randomly selected cities.</p>
-                            <img src="Resources/assets/images/Fig1.png" alt="Fig1">
+                            Max Temperature, Humidity, Cloudiness, and Wind Speed (mph) for about 500 randomly selected cities.</p>
+                            <p class="card-text">The data was gathered and plotted was completed using pandas and matplotlib.pyplot. 
+                                A random number generator was used to generate random latitude and longitudes in order to make the list that was 
+                                entered when making requests to the OpenWeatherApi.
+                            </p>
+                            <p class="card-text">
+                                This site will provide the data the OpenWeatherApi responded with and my commentary on the four scatterplots made.
+                                A Comparison screen is provided to view all of the charts together.
+                            </p>
+
+                            <img src="Resources/assets/images/Temperature (F) vs. Latitude.png" alt="Temperature (F) vs. Latitude.png">
                         </div>
                     </div>
                 </div>
 
-                <div class = "col-md-4">
+                <div class = "col-md-4 col-sm-12">
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-header">Visualizations</div>
                         <div class="card-body">
                             <div class="container-fluid">
                                 <div class="row">
                           
-                                    <div class="col-md-6">
-                                        <a target="_blank" href="#">
-                                            <img src="Resources/assets/images/Fig1.png" alt="Fig1"> 
+                                    <div class="col-md-6 col-sm-6">
+                                        <a target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/max_temp.html">
+                                            <img src="Resources/assets/images/Temperature (F) vs. Latitude.png" alt="Temperature (F) vs. Latitude.png"> 
                                         </a> 
                                     </div>
-                                    <div class="col-md-6">
-                                        <a target="_blank" href="#">
-                                            <img src="Resources/assets/images/Fig2.png" alt="Fig2"> 
+                                    <div class="col-md-6 col-sm-6">
+                                        <a target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/humidity.html">
+                                            <img src="Resources/assets/images/Humidity vs Latitude.png" alt="Humidity vs Latitude.png"> 
                                         </a> 
                                     </div>
         
@@ -101,14 +110,14 @@
                                 <br>
 
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <a target="_blank" href="#">
-                                            <img src="Resources/assets/images/Fig3.png" alt="Fig3"> 
+                                    <div class="col-md-6 col-sm-6">
+                                        <a target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/cloudiness.html">
+                                            <img src="Resources/assets/images/Cloudiness vs. Latitude.png" alt="Cloudiness vs. Latitude.png"> 
                                         </a> 
                                     </div>
-                                    <div class="col-md-6">
-                                        <a target="_blank" href="#">
-                                            <img src="Resources/assets/images/Fig4.png" alt="Fig4"> 
+                                    <div class="col-md-6 col-sm-6">
+                                        <a target="_blank" href="https://alvessab.github.io/SMU-data-bootcamp-12-2021/11-Web/Submission/wind_speed.html">
+                                            <img src="Resources/assets/images/Wind Speed (mph) vs. Latitude.png" alt="Wind Speed (mph) vs. Latitude.png"> 
                                         </a> 
                                     </div>
 
@@ -125,9 +134,25 @@
 
                 </div>
 
+               
+
             </div>
 
+            <br>
+            <br>
 
+            <div class= "row">
+                 <div class = "col-md-12 col-sm-12">
+                    <div class="card text-white bg-primary">
+                        <div class="card-body text-center">
+                          <h1 > Thank you for visiting! </h1>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            
             
         </div>
     </body>

@@ -1,6 +1,3 @@
-.right_align {
-    align-items: flex-end;
-}
 
 .center_align {
     text-align: center;
@@ -9,6 +6,7 @@
 .card_design {
     border-style: solid;
     border-color: #446E9B;
+    border-width: 10px;
 }
 
 img {
