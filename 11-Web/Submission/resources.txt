@@ -1,0 +1,8 @@
+Image sizing issue: property added to all img elements 
+https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+
+data table:
+https://getbootstrap.com/docs/4.3/content/tables/#responsive-tables
+
+
+
