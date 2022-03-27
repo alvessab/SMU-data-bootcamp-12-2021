@@ -8,7 +8,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 # create instance of Flask app
 app = Flask(__name__)
 
-
 # create route that renders index.html template
 @app.route("/scrape")
 def scrape():
