@@ -1,6 +1,7 @@
 
 
-
+Flask app
+I took a different approach and made use of helpers to accomplish the scrape and display.
 
 
 # Resources #

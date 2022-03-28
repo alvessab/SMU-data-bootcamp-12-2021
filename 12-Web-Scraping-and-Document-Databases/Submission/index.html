@@ -2,27 +2,46 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mars!</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="jumbotron text-center">
             <h1>Fetch My Mars Data!</h1>
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
         </div>
 
-        {% for img in marsData %}
-        <img src="{{featured_image_url}}">
-        {% endfor %}
 
-        <h2> {{ marsData.news_title }}</h3>
-        <h3>{{ marsData.news_text }}</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">Latest Mars News</div>
+                    <div class="card-body">
+                      <h2 class="card-title">News title</h2>
+                      <h4 class="card-text">news text</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Featured Mars Image</h2>
+
+            </div>
+
+            <div class="col-md-4">
+                <h3>Mars Facts</h3>
+                <p>table</p>
+            </div>
+        </div>
+
     </div>
     </div>
 </body>

@@ -18,7 +18,7 @@ def home():
     marsData = list(mongo.db.mars.find())[0]
 
     # Return template and data
-    return render_template("index.html", marsData=marsData)
+    return render_template("index.html", items=marsData)
 
 
 # Route that will trigger the scrape function
