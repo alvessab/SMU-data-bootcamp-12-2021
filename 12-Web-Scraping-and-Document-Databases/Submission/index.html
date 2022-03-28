@@ -5,22 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Teams!</title>
+  <title>Mars!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
 </head>
 
 <body>
-  <div class="container text-center">
-    <h1 class="jumbotron">Team Rosters</h1>
-    <div>
-      <ul style="list-style: none;">
-          {% for name in list %}
-          <li>{{ name }}</li>
-          {% endfor %}
-          
-      </ul>
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            <h1>Fetch My Mars Data!</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+        </div>
+
+        {% for img in marsData %}
+        <img src="{{featured_image_url}}">
+        {% endfor %}
+
+        <h2> {{ marsData.news_title }}</h3>
+        <h3>{{ marsData.news_text }}</h3>
     </div>
-  </div>
+    </div>
 </body>
+
 
 </html>
