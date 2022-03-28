@@ -1,14 +1,19 @@
 # import necessary libraries
 from flask import Flask, render_template
 import pandas as pd
+import numpy as np
 from splinter import Browser
 from bs4 import BeautifulSoup
 from webdriver_manager.chrome import ChromeDriverManager
+import pymongo
+import pandas as pd
 
-# create instance of Flask app
+
+#Create an instance of our Flask app.
 app = Flask(__name__)
 
-# create route that renders index.html template
+
+# webscrape route
 @app.route("/scrape")
 def scrape():
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -76,7 +81,34 @@ def scrape():
         browser.visit(url)
         html = browser.html
         soup = BeautifulSoup(html)
+    
+    #dictionary needed for jinja:
+    mars_data = {}
+    mars_data["news_title"]=news_title
+    mars_data["news_text"]=news_text
+    mars_data["featured_image_url"]=featured_image_url
+    mars_data["mars_info"]=mars_info.to_html()
+    mars_data["hemisphere_image_urls"]=hemisphere_image_urls
 
+    browser.quit()
+
+
+#MONGODB AND INDEX ROUTE
+
+# Create connection variable
+conn = 'mongodb://localhost:27017'
+
+# Pass connection to the pymongo instance.
+client = pymongo.MongoClient(conn)
+
+# Connect to a database. Will create one if not already available.
+db = client.mars_db
+
+# Drops collection if available to remove duplicates
+db.data.drop()
+
+# Creates a collection in the database and inserts two documents
+db.team.insert_many(mars_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
