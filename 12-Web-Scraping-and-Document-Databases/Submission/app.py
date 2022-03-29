@@ -12,11 +12,12 @@ scraper = ScrapingHelper()
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
-def home():
+def index():
 
     # Find one record of data from the mongo database
-    marsData = list(mongo.db.mars.find())[0]
-
+    marsData = list(mongo.db.mars.find())
+    print(marsData)
+    
     # Return template and data
     return render_template("index.html", items=marsData)
 

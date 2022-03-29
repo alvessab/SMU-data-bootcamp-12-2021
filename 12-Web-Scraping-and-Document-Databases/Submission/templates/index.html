@@ -17,23 +17,29 @@
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
         </div>
 
-
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="card text-white bg-secondary mb-3">
                     <div class="card-header">Latest Mars News</div>
                     <div class="card-body">
-                      <h2 class="card-title">News title</h2>
+                        {% for item in items.news_title %}
+                            <h2 class="card-title">{{item.news_title}}</h2>
+                      {% endfor %}
                       <h4 class="card-text">news text</h4>
                     </div>
                 </div>
             </div>
         </div>
-
+        <br>
+        <hr>
+        <br>
         <div class="row">
+            
             <div class="col-md-8">
                 <h2>Featured Mars Image</h2>
-
+                
+                <img src="img"> 
             </div>
 
             <div class="col-md-4">
@@ -41,7 +47,45 @@
                 <p>table</p>
             </div>
         </div>
-
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            {% for hemi in mars.hemisphere_image_urls}}
+            <div class="class-md-3">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">{{hemi.title}}</div>
+                    <div class="card-body">
+                      <h4 class="card-text">{{hemi.img_url}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="class-md-3">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">image name</div>
+                    <div class="card-body">
+                      <h4 class="card-text">image iteration</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="class-md-3">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">image name</div>
+                    <div class="card-body">
+                      <h4 class="card-text">image iteration</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="class-md-3">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">image name</div>
+                    <div class="card-body">
+                      <h4 class="card-text">image iteration</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
     </div>
 </body>

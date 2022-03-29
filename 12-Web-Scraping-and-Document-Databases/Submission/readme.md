@@ -1,7 +1,9 @@
+# App #
+Please make sure to press the Get Data! button to retrieve data.
 
+Jinja connection was not working at time of submission. Webscraping and flask app components seem to be completed. 
 
-Flask app
-I took a different approach and made use of helpers to accomplish the scrape and display.
+## Thank you! ##
 
 
 # Resources #

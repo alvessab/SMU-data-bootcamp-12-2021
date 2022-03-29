@@ -21,7 +21,7 @@ class ScrapingHelper():
         url = "https://redplanetscience.com/"
         browser.visit(url)
         html = browser.html
-        soup = BeautifulSoup(html)
+        soup = BeautifulSoup(html, "lxml")
 
         news_title = soup.find_all("div", {"class": "content_title"})[0].text.strip()
         news_text= soup.find_all("div", {"class": "article_teaser_body"})[0].text.strip()   
@@ -30,7 +30,7 @@ class ScrapingHelper():
         url = "https://spaceimages-mars.com/"
         browser.visit(url)
         html = browser.html
-        soup = BeautifulSoup(html)
+        soup = BeautifulSoup(html, "lxml")
         for image in soup.find_all("a", {"class": "showimg fancybox-thumbs"}):
             image_url = image["href"]
         featured_image_url = url + image_url
@@ -39,7 +39,7 @@ class ScrapingHelper():
         url = "https://galaxyfacts-mars.com/"
         browser.visit(url)
         html = browser.html
-        soup = BeautifulSoup(html)
+        soup = BeautifulSoup(html, "lxml")
         
         dfs = pd.read_html(html)
         mars_info = dfs[1]
@@ -50,7 +50,7 @@ class ScrapingHelper():
         url = "https://marshemispheres.com/"
         browser.visit(url)
         html = browser.html
-        soup = BeautifulSoup(html)
+        soup = BeautifulSoup(html, "lxml")
 
         items = soup.find_all("div", {"class": "item"})
         
@@ -63,7 +63,7 @@ class ScrapingHelper():
             url2 = image_link
             browser.visit(url2)
             html2 = browser.html
-            soup2 = BeautifulSoup(html2)
+            soup2 = BeautifulSoup(html2, "lxml")
             
             #get title
             title = soup2.find("h2", {"class":"title"}).text.strip('Enhanced').strip()
@@ -77,7 +77,7 @@ class ScrapingHelper():
             url = "https://marshemispheres.com/"
             browser.visit(url)
             html = browser.html
-            soup = BeautifulSoup(html)
+            soup = BeautifulSoup(html, "lxml")
         
         #dictionary needed for jinja:
         mars_data = {}
@@ -90,6 +90,7 @@ class ScrapingHelper():
         return(mars_data)
 
         browser.quit()
+        engine.close()
 
 
 class MongoHelper():
