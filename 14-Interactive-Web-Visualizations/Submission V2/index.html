@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belly Button Diversity</title>
+
+    <!-- Bootstrap and Bootswatch -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css">
+
+    <!-- Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+    <!-- JAVASCRIPT file -->
+    <script src="static/js/app.js"></script>
+</head>
+
+
+<body>
+    <div class="container-fluid">
+
+        <div class ="row">
+            <div class="col-md-12">
+                <div class="card border-success mb-3 text-md-center">
+                    <div class="card-body">
+                      <h3 class="card-title">Belly Button BioDiversity Dashboard</h3>
+                      <p class="card-text">Use the interactive charts below to explore the data set, a catalog of the microbes that colonize human navels.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class= "col-md-1"></div>
+            <div class= "col-md-10">
+
+                <div class="col-md-6">
+                <p>Select ID Number:</p>
+                <select id="sel"></select>
+                </div>
+
+                <br>
+
+                <div class="col-md-6">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">Demographics</div>
+                    <div class="card-body">
+                        <p id="info"></p>
+                    </div>
+                    </div>
+                
+                    
+
+            </div>
+            <div class= "col-md-1"></div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bar"></div>
+    
+            </div>
+        </div>
+        
+
+    </div>
+    
+
+</body>
+</html>
