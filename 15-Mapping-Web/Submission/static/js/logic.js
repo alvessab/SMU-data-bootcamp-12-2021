@@ -150,34 +150,6 @@ function createMap(data) {
     // Create an overlays object (without geojson)
     var magnitudeLayer = L.layerGroup(circles);
 
-    // add legend
-    // var legend = L.control({position: 'bottomleft'});
-
-    // legend.onAdd = function () {
-
-    //     var div = L.DomUtil.create('div', 'info legend');
-    //     //labels = ['<strong>Magnitude</strong>'],
-    //     colors = ['#12c42c', '#929f00', '#b98000', '#c86d00', '#dc4000', '#e11c1c'],
-    //     categories = ['<= 1','<= 3','<= 5','<= 7','<= 9', '> 9'];
-
-    //     for (var i = 0; i < categories.length; i++) {
-
-    //             let color = colors[i]
-    //             let category = categories[1]
-
-    //             let html = `<i style='background:${color}'></i>${category}<br>`;
-            
-    //             div.innerHTML += html
-    //         }
-    //         //div.innerHTML = labels.join('<br>');
-    //     return div;
-    // };
-    
-    // legend.addTo(myMap);
-
-
-
-
     // Create a baseMaps object.
     var baseMaps = {
         "Dark": dark_layer,
@@ -206,4 +178,28 @@ function createMap(data) {
     // Be sure to add an overlay Layer that contains the earthquake GeoJSON.
     L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
+    
+    // add legend
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function () {
+
+        var div = L.DomUtil.create('div', 'info legend');
+        var colors = ['#12c42c', '#929f00', '#b98000', '#c86d00', '#dc4000', '#e11c1c'];
+        var categories = ['<= 1','<= 3','<= 5','<= 7','<= 9', '> 9'];
+
+        for (var i = 0; i < categories.length; i++) {
+
+                let color = colors[i]
+                let category = categories[1]
+
+                let html = `<i style='background:${color}'></i>${category}<br>`;
+            
+                div.innerHTML += html
+            }
+
+        return div;
+    };
+    
+    legend.addTo(myMap);
 };
