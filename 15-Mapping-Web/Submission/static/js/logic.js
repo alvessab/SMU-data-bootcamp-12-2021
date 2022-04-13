@@ -36,7 +36,7 @@ function requestAjax(url) {
             console.log("FAILED to get data");
             console.log(textStatus);
             console.log(errorThrown);
-        }
+        } 
     });
 }
 
@@ -97,7 +97,6 @@ function createMap(data) {
         let location = [earthquake.geometry.coordinates[1], earthquake.geometry.coordinates[0]]
         let mag = earthquake.properties.mag
 
-    //avoid records without magnitude, which is present in last month and last week data
         let circle= L.circle(location, {
             fillOpacity: 0.75,
             color: getColor(mag),
@@ -107,14 +106,24 @@ function createMap(data) {
     
             //add to variables
             circles.push(circle)
+            
         
-      }
+    };
 
 
-    //function to determine marker radius
+    //function to determine marker radius-- dynamic with magnitude
       function getRadius(mag){
-          return Math.sqrt(mag) * 100000
-          }
+          var radius = 5000
+
+          if (mag){
+            radius =  mag * 40000
+          } else {
+            radius
+          };
+
+          return radius
+        
+          };
         
       
     //function to determine marker color
@@ -142,6 +151,30 @@ function createMap(data) {
     var magnitudeLayer = L.layerGroup(circles);
 
     // add legend
+    // var legend = L.control({position: 'bottomleft'});
+
+    // legend.onAdd = function () {
+
+    //     var div = L.DomUtil.create('div', 'info legend');
+    //     //labels = ['<strong>Magnitude</strong>'],
+    //     colors = ['#12c42c', '#929f00', '#b98000', '#c86d00', '#dc4000', '#e11c1c'],
+    //     categories = ['<= 1','<= 3','<= 5','<= 7','<= 9', '> 9'];
+
+    //     for (var i = 0; i < categories.length; i++) {
+
+    //             let color = colors[i]
+    //             let category = categories[1]
+
+    //             let html = `<i style='background:${color}'></i>${category}<br>`;
+            
+    //             div.innerHTML += html
+    //         }
+    //         //div.innerHTML = labels.join('<br>');
+    //     return div;
+    // };
+    
+    // legend.addTo(myMap);
+
 
 
 
@@ -166,11 +199,11 @@ function createMap(data) {
             34.09, 3.058756
         ],
         zoom: 2,
-        layers: [dark_layer, magnitudeLayer]
+        layers: [light_layer, magnitudeLayer]
     });
 
     // Create a layer control that contains our baseMaps.
     // Be sure to add an overlay Layer that contains the earthquake GeoJSON.
     L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
-}
+};
