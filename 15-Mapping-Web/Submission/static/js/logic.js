@@ -195,7 +195,7 @@ function createMap(data) {
 
                 let html = `<i style='background:${color}'></i>${category}<br>`;
             
-                div.innerHTML += html
+                div.innerHTML += html;
             }
 
         return div;
