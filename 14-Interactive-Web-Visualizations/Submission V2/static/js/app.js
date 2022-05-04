@@ -65,7 +65,7 @@ function getDataAndPlot(data) {
     // Horizontal Bar Chart    
 
         let sample = data.samples.filter(x => x.id == filter_ID).sort(function compareFunction(firstNum, secondNum) {
-            return firstNum - secondNum;
+            return secondNum - firstNum;
           });;
         console.log(sample)
 
